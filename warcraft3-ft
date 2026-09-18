@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Warcraft III: The Frozen Throne - Linux/Wine launcher (LAN-friendly)
+set -euo pipefail
+unset WINEARCH
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Works from linux-setup/ (published layout) or linux-setup/eng/ (local draft folder)
+if [[ -f "$SCRIPT_DIR/../Frozen Throne.exe" ]]; then
+  GAME_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+elif [[ -f "$SCRIPT_DIR/../../Frozen Throne.exe" ]]; then
+  GAME_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+else
+  GAME_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+fi
+export WINEPREFIX="${WINEPREFIX:-$HOME/.wine-wc3}"
+export WINEDLLOVERRIDES="${WINEDLLOVERRIDES:-mscoree,mshtml=}"
+
+if [[ ! -x "$(command -v wine)" ]]; then
+  echo "wine is missing. Run: $SCRIPT_DIR/setup-linux.sh" >&2
+  exit 1
+fi
+if [[ ! -d "$WINEPREFIX/drive_c" ]]; then
+  echo "Wine prefix is missing ($WINEPREFIX). Run: $SCRIPT_DIR/setup-linux.sh" >&2
+  exit 1
+fi
+
+# Keep game reachable at a stable Wine path
+mkdir -p "$WINEPREFIX/drive_c"
+ln -sfn "$GAME_DIR" "$WINEPREFIX/drive_c/Warcraft III"
+
+cd "$GAME_DIR"
+
+# Default: real game window (not a blue Wine desktop).
+# Optional: WC3_VIRTUAL_DESKTOP=1920x1080 ./warcraft3-ft
+if [[ -n "${WC3_VIRTUAL_DESKTOP:-}" ]]; then
+  exec wine explorer /desktop=WC3,"$WC3_VIRTUAL_DESKTOP" "Frozen Throne.exe" -window "$@"
+fi
+exec wine "Frozen Throne.exe" -window "$@"
