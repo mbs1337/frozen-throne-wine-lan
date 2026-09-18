@@ -33,4 +33,6 @@ GPL-3.0 - see [LICENSE](LICENSE)
 
 ## Author
 
-[mbsTECH.dk](https://mbstech.dk) | Michael Bay Sørensen
+- **Name**: Michael Bay Sørensen
+- **Website**: [mbsTECH.dk](https://mbstech.dk)
+- **Twitter**: [@baysorensen](https://twitter.com/baysorensen)
