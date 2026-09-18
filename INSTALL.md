@@ -24,18 +24,20 @@ Warcraft III/
 
 ---
 
-## Quick start (Arch)
+## Quick start
+
+Built for Linux. The automated script targets Arch (pacman) and is what was tested. Other distros: install Wine yourself, then use the launcher.
 
 ```bash
 cd "/path/to/Warcraft III/linux-setup"
 chmod +x setup-linux.sh warcraft3-ft
-./setup-linux.sh
+./setup-linux.sh    # Arch helper - skip on other distros if you install Wine manually
 ./warcraft3-ft
 ```
 
 The setup script installs Wine + deps, creates `~/.wine-wc3`, links the game as `C:\Warcraft III`, and adds an app-menu shortcut.
 
-Other distros: install Wine (with 32-bit/multilib + audio), then create the same prefix/link manually, or adapt the script.
+On other distros: install Wine (with 32-bit/multilib + audio), create the same prefix/link manually if needed, then run `./warcraft3-ft`.
 
 ---
 
