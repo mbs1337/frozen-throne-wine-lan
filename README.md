@@ -5,7 +5,7 @@
 [![Tested on](https://img.shields.io/badge/TESTED%20ON-Arch%20Linux-1793D1?style=flat-square&logo=archlinux&logoColor=white)](https://archlinux.org/)
 [![Wine](https://img.shields.io/badge/RUNS%20ON-Wine-8c8c8c?style=flat-square)](https://www.winehq.org/)
 
-Small helper scripts to run classic **Warcraft III: The Frozen Throne** under Wine on Linux, with focus on **LAN** (including Windows friends).
+Small helper scripts to run classic **Warcraft III: The Frozen Throne** under Wine on Linux, with focus on **LAN** (including Windows friends). Easy and almost just Plug and Play. No coding experience needed!
 
 Not Reforged. Not Battle.net. Just Local Area Network.
 
