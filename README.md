@@ -27,10 +27,6 @@ No game files. You need your own legal WC3 install.
 2. Read `INSTALL.md`
 3. Run `./setup-linux.sh` (Arch) or set up Wine manually, then `./warcraft3-ft`
 
-## License
-
-GPL-3.0 - see [LICENSE](LICENSE)
-
 ## Author
 
 - **Name**: Michael Bay Sørensen
